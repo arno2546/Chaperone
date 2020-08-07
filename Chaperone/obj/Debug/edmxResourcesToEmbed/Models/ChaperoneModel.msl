@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ChaperoneModelStoreContainer" CdmEntityContainer="ChaperoneEntities">
+    <EntitySetMapping Name="Requests">
+      <EntityTypeMapping TypeName="ChaperoneModel.Request">
+        <MappingFragment StoreEntitySet="Requests">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TouristId" ColumnName="TouristId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="GuideId" ColumnName="GuideId" />
+          <ScalarProperty Name="RequestState" ColumnName="RequestState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="ChaperoneModel.Review">
+        <MappingFragment StoreEntitySet="Reviews">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReviewerId" ColumnName="ReviewerId" />
+          <ScalarProperty Name="ReviewedId" ColumnName="ReviewedId" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Review1" ColumnName="Review" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ChaperoneModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="User_type" ColumnName="User_type" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Bio" ColumnName="Bio" />
+          <ScalarProperty Name="Culture" ColumnName="Culture" />
+          <ScalarProperty Name="Festival" ColumnName="Festival" />
+          <ScalarProperty Name="Sports" ColumnName="Sports" />
+          <ScalarProperty Name="Food" ColumnName="Food" />
+          <ScalarProperty Name="NightLife" ColumnName="NightLife" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

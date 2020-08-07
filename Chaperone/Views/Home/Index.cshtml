@@ -1,0 +1,18 @@
+﻿@model Chaperone.Models.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Add search form here</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h1 style="text-align:center;">Add search form here</h1>
+     </div>   
+}
+
+
