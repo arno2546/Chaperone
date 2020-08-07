@@ -146,7 +146,6 @@
     <Content Include="Views\User\CreateGuide.cshtml" />
     <Content Include="Views\User\CreateGenUser.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\User\GenUserDash.cshtml" />
     <Content Include="Views\GenUser\Edit.cshtml" />
@@ -184,6 +183,7 @@
     <Compile Include="Models\Review.cs">
       <DependentUpon>ChaperoneModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\User.cs">
       <DependentUpon>ChaperoneModel.tt</DependentUpon>
     </Compile>
@@ -196,6 +196,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
