@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Chaperone.Models.Request>
+
+@{
+    ViewBag.Title = "GenUserRequestIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GenUserRequestIndex</h2>
+
+<p>
+    
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestState)
+        </th>
+   
+        <th>
+           Guide Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User1.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
