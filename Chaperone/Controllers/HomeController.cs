@@ -25,10 +25,13 @@ namespace Chaperone.Controllers
             Users = new List<User>();
             foreach(User u in tempUsers)
             {
-                if (u.Location.ToString().Contains(s.searchString.ToString()))
+                if (u.User_type == "Guide")
                 {
-                    Users.Add(u);
-                }                                       
+                    if (u.Location.ToString().Contains(s.searchString.ToString()))
+                    {
+                        Users.Add(u);
+                    }
+                }
             }
             tempUsers = Users.ToList();
             if (s.Female)
@@ -116,6 +119,13 @@ namespace Chaperone.Controllers
             }
             return View(Users);
             
+        }
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            ChaperoneEntities che = new ChaperoneEntities();
+            User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
+            return View(u);
         }
         
     }

@@ -1,20 +1,18 @@
 ﻿@model IEnumerable<Chaperone.Models.User>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Search Results";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -29,12 +27,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Languages)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User_type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contact)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Bio)
