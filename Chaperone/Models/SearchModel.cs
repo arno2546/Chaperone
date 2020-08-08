@@ -19,5 +19,7 @@ namespace Chaperone.Models
         public bool Female { get; set; }
         public bool English { get; set; }
         public bool Spanish { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

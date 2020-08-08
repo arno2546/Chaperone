@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>SearchModel</h4>
+        <h2 style="text-align:center">Search</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -114,9 +114,9 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+             <center>
+                <input type="submit" value="Search" class="btn btn-default" />
+             </center>
         </div>
     </div>
 }
