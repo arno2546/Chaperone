@@ -81,55 +81,42 @@
         </div>
         <hr />
         <h3 style="text-align:center;">Interests</h3>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Culture, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Culture)
-                    @Html.ValidationMessageFor(model => model.Culture, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+        <table>
+            <tr>
+           <td> @Html.LabelFor(model => model.Culture, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+            
+                   <td> @Html.EditorFor(model => model.Culture)</td>
+                  <td>  @Html.ValidationMessageFor(model => model.Culture, "", new { @class = "text-danger" })</td>
+                
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Festival, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Festival)
-                    @Html.ValidationMessageFor(model => model.Festival, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+        
+           <td> @Html.LabelFor(model => model.Festival, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+            
+                 <td>   @Html.EditorFor(model => model.Festival)</td>
+                    <td>@Html.ValidationMessageFor(model => model.Festival, "", new { @class = "text-danger" })</td>
+                
+        
+           <td> @Html.LabelFor(model => model.Sports, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+            
+              <td>      @Html.EditorFor(model => model.Sports)</td>
+                   <td> @Html.ValidationMessageFor(model => model.Sports, "", new { @class = "text-danger" }) </td>
+                
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Sports, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Sports)
-                    @Html.ValidationMessageFor(model => model.Sports, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+        
+           <td> @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+            
+                   <td> @Html.EditorFor(model => model.Food)</td>
+                   <td> @Html.ValidationMessageFor(model => model.Food, "", new { @class = "text-danger" })</td>
+               
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Food, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Food)
-                    @Html.ValidationMessageFor(model => model.Food, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NightLife, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.NightLife)
-                    @Html.ValidationMessageFor(model => model.NightLife, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+       
+           <td> @Html.LabelFor(model => model.NightLife, htmlAttributes: new { @class = "control-label col-md-2" })</td>
+            
+                    <td>@Html.EditorFor(model => model.NightLife)</td>
+                  <td>  @Html.ValidationMessageFor(model => model.NightLife, "", new { @class = "text-danger" })</td>
+                </tr>
+            </table>
+                
 
         <div class="form-group">
             <center>
