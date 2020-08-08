@@ -1,4 +1,4 @@
-﻿@model Chaperone.Models.SearchModel
+﻿@model IEnumerable<Chaperone.Models.User>
 
 @{
     ViewBag.Title = "Index";
@@ -7,120 +7,106 @@
 
 <h2>Index</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h2 style="text-align:center">Search</h2>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.searchString, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.searchString, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.searchString, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Languages)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Culture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Festival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sports)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NightLife)
+        </th>
+        <th></th>
+    </tr>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.festival, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.festival)
-                    @Html.ValidationMessageFor(model => model.festival, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.sports, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.sports)
-                    @Html.ValidationMessageFor(model => model.sports, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.food, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.food)
-                    @Html.ValidationMessageFor(model => model.food, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.nightlife, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.nightlife)
-                    @Html.ValidationMessageFor(model => model.nightlife, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.culture, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.culture)
-                    @Html.ValidationMessageFor(model => model.culture, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Male, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Male)
-                    @Html.ValidationMessageFor(model => model.Male, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Female, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Female)
-                    @Html.ValidationMessageFor(model => model.Female, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.English, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.English)
-                    @Html.ValidationMessageFor(model => model.English, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Spanish, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Spanish)
-                    @Html.ValidationMessageFor(model => model.Spanish, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-             <center>
-                <input type="submit" value="Search" class="btn btn-default" />
-             </center>
-        </div>
-    </div>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Languages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Culture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Festival)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sports)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Food)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NightLife)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+</table>
