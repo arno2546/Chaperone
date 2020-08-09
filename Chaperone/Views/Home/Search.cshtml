@@ -11,21 +11,28 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div class="container-fluid h-100 bg-light text-dark">
         <h2 style="text-align:center">Search</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <table class="center">
-            <tr align="center">
         
-                   <td align="center"> <label>Search</label>
-                </td>
-                  <td align="center">  @Html.EditorFor(model => model.searchString, new { htmlAttributes = new { @class = "form-control" } })
-               </td>
-                   <td align="center"> @Html.ValidationMessageFor(model => model.searchString, "", new { @class = "text-danger" })
-                 </td>
-                       </tr>
-                </table>  
+        <div class="row justify-content-center align-items-center">
+            <table>
+                <tr>
+
+                    <td class="align-middle">
+                        <label>Search</label>
+                    </td>
+                    <td class="align-middle">
+                        @Html.EditorFor(model => model.searchString, new { htmlAttributes = new { @class = "form-control" } })
+                    </td>
+                    <td class="align-middle">
+                        @Html.ValidationMessageFor(model => model.searchString, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
                 <table class="center" >
                     <tr>
                         <td><h2 style="text-align:center">Interests</h2></td>
