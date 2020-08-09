@@ -79,6 +79,10 @@ namespace Chaperone.Controllers
                     {
                         return RedirectToAction("Index", "Guide");
                     }
+                    if (verfUser.User_type == "Admin")
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
                     
                 }
             }

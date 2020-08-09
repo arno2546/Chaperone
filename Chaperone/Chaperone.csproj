@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GenUserController.cs" />
     <Compile Include="Controllers\GuideController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -203,6 +204,11 @@
     <Content Include="Views\GenUser\GuideProfile.cshtml" />
     <Content Include="Views\Request\GenUserRequestIndex.cshtml" />
     <Content Include="Views\Guide\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminDashLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Tourists.cshtml" />
+    <Content Include="Views\Admin\Guides.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
