@@ -49,7 +49,20 @@
             @Html.DisplayFor(modelItem => item.User1.Name)
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @if (item.RequestState == "Pending")
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            }
+            @if (item.RequestState == "Accepted")
+            {
+                @Html.ActionLink("Close", "closeRequest", new { id = item.Id })
+            }
+            |
+            @if (item.RequestState == "Accepted")
+            {
+                @Html.ActionLink("Fullfilled", "requestDone", new { id = item.Id })
+            }
+
         </td>
     </tr>
 }

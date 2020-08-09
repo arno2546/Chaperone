@@ -1,8 +1,68 @@
-﻿
+﻿@model IEnumerable<Chaperone.Models.Request>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_GuideDashLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h3>Index</h3>
 
+<p>
+   <h2 style="text-align:center">Request(s):</h2>
+    <hr />
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Name)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+        
+        <td>
+            @if (item.RequestState == "Pending")
+            {
+                @Html.ActionLink("Accept", "AcceptRequest", new { id = item.Id })
+
+            }
+            |
+            @if (item.RequestState == "Pending")
+            {
+                @Html.ActionLink("Reject", "RejectRequest", new { id = item.Id })
+            }
+        </td>
+    </tr>
+}
+
+</table>
