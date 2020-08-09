@@ -128,6 +128,22 @@
                     <td>
                         @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
                     </td>
+                    
+                </tr>
+                <tr>
+                    
+
+                    <td class="align-middle">
+                        <label>Rate(USD)</label>
+                    </td>
+                    
+
+                    <td>
+                        @Html.EditorFor(model => model.Rate)
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(model => model.Rate, "", new { @class = "text-danger" })
+                    </td>
 
                 </tr>
             </table>
