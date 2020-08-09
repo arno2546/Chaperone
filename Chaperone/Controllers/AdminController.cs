@@ -167,5 +167,22 @@ namespace Chaperone.Controllers
             public int Tourist { get; set; }
             public int Admin { get; set; }
         }
+
+        public ActionResult GetGenderData()
+        {
+            ChaperoneEntities che = new ChaperoneEntities();
+            int male = che.Users.Where(x => x.Gender.Contains("Male") && x.User_type=="Guide").Count();
+            int female = che.Users.Where(x => x.Gender.Contains("Female") && x.User_type == "Guide").Count();
+            Ratio2 obj = new Ratio2();
+            obj.Male = male;
+            obj.Female = female;
+            return Json(obj, JsonRequestBehavior.AllowGet);
+        }
+
+        public class Ratio2
+        {
+            public int Male { get; set; }
+            public int Female { get; set; }
+        }
     }
 }
