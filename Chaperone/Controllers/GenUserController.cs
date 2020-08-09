@@ -193,6 +193,7 @@ namespace Chaperone.Controllers
                 Request r = new Request();
                 r.Location = (string)Session["Location"];
                 r.GuideId = guide.Id;
+                r.Contact = tourist.Contact;
                 r.TouristId = tourist.Id;
                 r.StartDate = (string)Session["startDate"];
                 r.EndDate = (string)Session["endDate"];
