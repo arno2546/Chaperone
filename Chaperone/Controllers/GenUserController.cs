@@ -13,10 +13,9 @@ namespace Chaperone.Controllers
         // GET: GenUser
         [HttpGet]
         public ActionResult Index()
-        {
-            int i = (int)Session["LoggedIn"];
-            string u_type = (string)Session["u_type"];
-            if (i == 1 && u_type == "Gen")
+        {          
+           
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
             {
                 return View("~/Views/User/GenUserDash.cshtml");
             }
@@ -134,9 +133,8 @@ namespace Chaperone.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            int i = (int)Session["LoggedIn"];
-            string u_type = (string)Session["u_type"];
-            if (i == 1 && u_type == "Gen")
+            
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
             {
                 ChaperoneEntities che = new ChaperoneEntities();
                 int id = (int)Session["uid"];
@@ -149,11 +147,10 @@ namespace Chaperone.Controllers
         [HttpPost]
         public ActionResult Edit(User u)
         {
-            int i = (int)Session["LoggedIn"];
-            int id = (int)Session["uid"];
-            string u_type = (string)Session["u_type"];
-            if (u_type == "Gen" && i == 1)
+            
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
             {
+                int id = (int)Session["uid"];
                 ChaperoneEntities che = new ChaperoneEntities();
                 User userToUpdate = che.Users.Where(x => x.Id == id).FirstOrDefault();
                 userToUpdate.Name = u.Name;
@@ -170,33 +167,41 @@ namespace Chaperone.Controllers
         [HttpGet]
         public ActionResult GuideProfile(int id)
         {
-            ChaperoneEntities che = new ChaperoneEntities();
-            User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
-            return View(u);
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
+            {
+                ChaperoneEntities che = new ChaperoneEntities();
+                User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
+                return View(u);
+            }
+            return RedirectToAction("Index","Home");
         }
         [HttpPost]
         [ActionName("GuideProfile")]
         public ActionResult GuidedProfile(int id)
         {
-            ChaperoneEntities che = new ChaperoneEntities();
-            int i = (int)Session["uid"];
-            User guide = che.Users.Where(x => x.Id == id).FirstOrDefault();
-            User tourist = che.Users.Where(x => x.Id == i).FirstOrDefault();
-            Request check = che.Requests.Where(x => x.TouristId == i && x.GuideId == id && x.RequestState=="Pending").FirstOrDefault();
-            if (check != null)
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
             {
+                ChaperoneEntities che = new ChaperoneEntities();
+                int i = (int)Session["uid"];
+                User guide = che.Users.Where(x => x.Id == id).FirstOrDefault();
+                User tourist = che.Users.Where(x => x.Id == i).FirstOrDefault();
+                Request check = che.Requests.Where(x => x.TouristId == i && x.GuideId == id && x.RequestState == "Pending").FirstOrDefault();
+                if (check != null)
+                {
+                    return RedirectToAction("Index");
+                }
+                Request r = new Request();
+                r.Location = (string)Session["Location"];
+                r.GuideId = guide.Id;
+                r.TouristId = tourist.Id;
+                r.StartDate = (string)Session["startDate"];
+                r.EndDate = (string)Session["endDate"];
+                r.RequestState = "Pending";
+                che.Requests.Add(r);
+                che.SaveChanges();
                 return RedirectToAction("Index");
             }
-            Request r = new Request();
-            r.Location = (string)Session["Location"];
-            r.GuideId = guide.Id;
-            r.TouristId = tourist.Id;
-            r.StartDate = (string)Session["startDate"];
-            r.EndDate = (string)Session["endDate"];
-            r.RequestState = "Pending";
-            che.Requests.Add(r);
-            che.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
 
         }
     }

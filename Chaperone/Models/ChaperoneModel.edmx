@@ -11,6 +11,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TouristId" Type="int" Nullable="false" />
+          <Property Name="Contact" Type="varchar" MaxLength="50" />
           <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="StartDate" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="EndDate" Type="varchar" MaxLength="50" Nullable="false" />
@@ -46,6 +47,8 @@
           <Property Name="Sports" Type="bit" />
           <Property Name="Food" Type="bit" />
           <Property Name="NightLife" Type="bit" />
+          <Property Name="Rate" Type="float" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Requests_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
@@ -127,6 +130,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TouristId" Type="Int32" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -166,6 +170,8 @@
           <Property Name="Sports" Type="Boolean" />
           <Property Name="Food" Type="Boolean" />
           <Property Name="NightLife" Type="Boolean" />
+          <Property Name="Rate" Type="Double" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Requests" Relationship="Self.FK_Requests_Users" FromRole="Users" ToRole="Requests" />
           <NavigationProperty Name="Requests1" Relationship="Self.FK_Requests_UsersG" FromRole="Users" ToRole="Requests" />
           <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Users" FromRole="Users" ToRole="Reviews" />
@@ -251,6 +257,7 @@
               <MappingFragment StoreEntitySet="Requests">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TouristId" ColumnName="TouristId" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -288,6 +295,8 @@
                 <ScalarProperty Name="Sports" ColumnName="Sports" />
                 <ScalarProperty Name="Food" ColumnName="Food" />
                 <ScalarProperty Name="NightLife" ColumnName="NightLife" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -26,6 +26,7 @@ namespace Chaperone.Controllers
             if (ModelState.IsValid)
             {
                 u.User_type = "Gen";
+                u.status = "Active";
                 ChaperoneEntities che = new ChaperoneEntities();
                 che.Users.Add(u);
                 che.SaveChanges();
@@ -45,6 +46,7 @@ namespace Chaperone.Controllers
             {
                 ChaperoneEntities che = new ChaperoneEntities();
                 u.User_type = "Guide";
+                u.status = "Active";
                 che.Users.Add(u);
                 che.SaveChanges();
                 return RedirectToAction("Index", "Home");
@@ -67,23 +69,26 @@ namespace Chaperone.Controllers
             {
                 if (u.Password == verfUser.Password)
                 {
-                    //initialize SESSION components.......l
-                    Session["LoggedIn"] = 1;
-                    Session["uname"] = verfUser.Name;
-                    Session["uid"] = verfUser.Id;
-                    Session["u_type"] = verfUser.User_type;
-                    if (verfUser.User_type == "Gen") {
-                        return RedirectToAction("Index", "GenUser");
-                    }
-                    if (verfUser.User_type == "Guide")
+                    if (verfUser.status=="Active")
                     {
-                        return RedirectToAction("Index", "Guide");
+                        //initialize SESSION components.......l
+                        Session["LoggedIn"] = 1;
+                        Session["uname"] = verfUser.Name;
+                        Session["uid"] = verfUser.Id;
+                        Session["u_type"] = verfUser.User_type;
+                        if (verfUser.User_type == "Gen")
+                        {
+                            return RedirectToAction("Index", "GenUser");
+                        }
+                        if (verfUser.User_type == "Guide")
+                        {
+                            return RedirectToAction("Index", "Guide");
+                        }
+                        if (verfUser.User_type == "Admin")
+                        {
+                            return RedirectToAction("Index", "Admin");
+                        }
                     }
-                    if (verfUser.User_type == "Admin")
-                    {
-                        return RedirectToAction("Index", "Admin");
-                    }
-                    
                 }
             }
             return RedirectToAction("LogIn");

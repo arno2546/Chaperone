@@ -6,6 +6,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TouristId" Type="int" Nullable="false" />
+    <Property Name="Contact" Type="varchar" MaxLength="50" />
     <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="StartDate" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="EndDate" Type="varchar" MaxLength="50" Nullable="false" />
@@ -41,6 +42,8 @@
     <Property Name="Sports" Type="bit" />
     <Property Name="Food" Type="bit" />
     <Property Name="NightLife" Type="bit" />
+    <Property Name="Rate" Type="float" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Requests_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />

@@ -40,7 +40,7 @@ namespace Chaperone.Controllers
             {
                 ChaperoneEntities che = new ChaperoneEntities();
                 User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
-                che.Users.Remove(u);
+                u.status = "Banned";
                 che.SaveChanges();
                 return RedirectToAction("Tourists");
             }
@@ -69,7 +69,7 @@ namespace Chaperone.Controllers
             {
                 ChaperoneEntities che = new ChaperoneEntities();
                 User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
-                che.Users.Remove(u);
+                u.status = "Banned";
                 che.SaveChanges();
                 return RedirectToAction("Guides");
             }
@@ -139,6 +139,7 @@ namespace Chaperone.Controllers
             {
                 ChaperoneEntities che = new ChaperoneEntities();
                 u.User_type = "Admin";
+                u.status = "Active";
                 che.Users.Add(u);
                 che.SaveChanges();
                 return RedirectToAction("Admins");

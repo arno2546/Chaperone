@@ -6,6 +6,7 @@
         <MappingFragment StoreEntitySet="Requests">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TouristId" ColumnName="TouristId" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
           <ScalarProperty Name="Location" ColumnName="Location" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -43,6 +44,8 @@
           <ScalarProperty Name="Sports" ColumnName="Sports" />
           <ScalarProperty Name="Food" ColumnName="Food" />
           <ScalarProperty Name="NightLife" ColumnName="NightLife" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -6,6 +6,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TouristId" Type="Int32" Nullable="false" />
+    <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="EndDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -45,6 +46,8 @@
     <Property Name="Sports" Type="Boolean" />
     <Property Name="Food" Type="Boolean" />
     <Property Name="NightLife" Type="Boolean" />
+    <Property Name="Rate" Type="Double" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Requests" Relationship="Self.FK_Requests_Users" FromRole="Users" ToRole="Requests" />
     <NavigationProperty Name="Requests1" Relationship="Self.FK_Requests_UsersG" FromRole="Users" ToRole="Requests" />
     <NavigationProperty Name="Reviews" Relationship="Self.FK_Reviews_Users" FromRole="Users" ToRole="Reviews" />

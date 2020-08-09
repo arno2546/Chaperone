@@ -16,6 +16,7 @@ namespace Chaperone.Models
     {
         public int Id { get; set; }
         public int TouristId { get; set; }
+        public string Contact { get; set; }
         public string Location { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }

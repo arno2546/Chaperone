@@ -18,15 +18,21 @@
                     <span class="icon-bar"></span>
 
                 </button>
-                @Html.ActionLink("Chaperone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Edit", "Edit", "Guide", new { area = "" }, new { @class = "navbar-brand" })
+                
+                
                 @{ var uname = Session["uname"].ToString();
                     var logOut = "Log out(" + uname + ")";}
-                @Html.ActionLink(logOut, "LogOut", "User", new { area = "" }, new { @class = "navbar-brand" })
+                
+            <a class="navbar-brand" href="#">@Html.ActionLink("Chaperone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+</div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Home", "Index", "Guide", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Edit", "Edit", "Guide", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink(logOut, "LogOut", "User", new { area = "" }, new { @class = "navbar-brand" })</li>
+            </ul>
 
 
-
-            </div>
+        </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                 </ul>

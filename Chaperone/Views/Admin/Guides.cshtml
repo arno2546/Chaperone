@@ -27,7 +27,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Languages)
         </th>
-         <th>
+        <th>
             @Html.DisplayNameFor(model => model.Contact)
         </th>
         <th>
@@ -45,51 +45,63 @@
         <th>
             @Html.DisplayNameFor(model => model.NightLife)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-         
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Languages)
-        </td>
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.Contact)
-        </td>
-         
-        <td>
-            @Html.DisplayFor(modelItem => item.Culture)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Festival)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sports)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Food)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NightLife)
-        </td>
-        <td>                     
-            @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
-        </td>
-    </tr>
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Languages)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Contact)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Culture)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Festival)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sports)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Food)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NightLife)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.status)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Rate)$
+    </td>
+    <td>
+        @Html.ActionLink("Ban", "Delete", new { id = item.Id })
+    </td>
+</tr>
 }
 
 </table>
