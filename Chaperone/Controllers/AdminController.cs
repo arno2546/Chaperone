@@ -104,8 +104,44 @@ namespace Chaperone.Controllers
                 adminToUpdate.Location = u.Location;
                 che.SaveChanges();
                 return RedirectToAction("Edit");            
-               
+            }
+            return View("Index", "Home");
+        }
+        [HttpGet]
+        public ActionResult Admins()
+        {
+            if ((string)Session["u_type"] == "Admin" && (int)Session["LoggedIn"] == 1)
+            {
+                ChaperoneEntities che = new ChaperoneEntities();
+                List<User> Admins = che.Users.Where(x => x.User_type == "Admin").ToList();
+                if (Admins != null)
+                {
+                    return View(Admins);
+                }
+            }
+            return View("Index", "Home");
+        }
+        
+        [HttpGet]
+        public ActionResult Create()
+        {
+            if ((string)Session["u_type"] == "Admin" && (int)Session["LoggedIn"] == 1)
+            {
+                return View();                
+            }
+            return View("Index", "Home");
+        }
 
+        [HttpPost]
+        public ActionResult Create(User u)
+        {
+            if ((string)Session["u_type"] == "Admin" && (int)Session["LoggedIn"] == 1)
+            {
+                ChaperoneEntities che = new ChaperoneEntities();
+                u.User_type = "Admin";
+                che.Users.Add(u);
+                che.SaveChanges();
+                return RedirectToAction("Admins");
             }
             return View("Index", "Home");
         }

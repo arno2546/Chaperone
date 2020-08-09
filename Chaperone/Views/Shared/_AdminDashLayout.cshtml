@@ -25,7 +25,8 @@
                 <a class="navbar-brand" href="#">@Html.ActionLink("Chaperone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li>@Html.ActionLink("Add Admin", "GenUserRequestIndex", "Request", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Add Admin", "Create", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>
+                <li>@Html.ActionLink("Admins", "Admins", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>
                 <li>@Html.ActionLink("Tourists", "Tourists", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>
                 <li>@Html.ActionLink("Guides", "Guides", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>
                 <li>@Html.ActionLink("Edit Profile", "Edit", "Admin", new { area = "" }, new { @class = "navbar-brand" })</li>

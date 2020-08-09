@@ -1,30 +1,29 @@
 ﻿@model IEnumerable<Chaperone.Models.User>
 
 @{
-    ViewBag.Title = "Tourists";
+    ViewBag.Title = "Admins";
     Layout = "~/Views/Shared/_AdminDashLayout.cshtml";
 }
 
-<h3>Tourists</h3>
-<hr />
+<h2>Admins</h2>
 
 <p>
-  
+    
 </p>
-<h2 style="text-align:center">Tourists</h2>
 <table class="table">
     <tr>
-       
+         
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        
+         
         <th>
-            @Html.DisplayNameFor(model => model.User_type)
+            @Html.DisplayNameFor(model => model.Location)
         </th>
+         
         <th>
             @Html.DisplayNameFor(model => model.Contact)
         </th>
@@ -34,20 +33,25 @@
 
 @foreach (var item in Model) {
     <tr>
+        
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
+         
         <td>
-            @Html.DisplayFor(modelItem => item.User_type)
+            @Html.DisplayFor(modelItem => item.Location)
         </td>
+         
+         
         <td>
             @Html.DisplayFor(modelItem => item.Contact)
         </td>
-        <td>
-          @*@Html.ActionLink("Delete", "deleteGenUser", new { id=item.Id })*@
+         
+        <td>             
+            @*@Html.ActionLink("Delete", "deleteAdmin", new { id=item.Id })*@
         </td>
     </tr>
 }
