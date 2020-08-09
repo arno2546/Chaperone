@@ -145,5 +145,26 @@ namespace Chaperone.Controllers
             }
             return View("Index", "Home");
         }
+
+        public ActionResult GetData()
+        {
+            ChaperoneEntities che = new ChaperoneEntities();
+            int gen = che.Users.Where(x => x.User_type == "Gen").Count();
+            int guide = che.Users.Where(x => x.User_type == "Guide").Count();
+            int admin = che.Users.Where(x => x.User_type == "Admin").Count();
+            Ratio obj = new Ratio();
+            obj.Admin = admin;
+            obj.Guide = guide;
+            obj.Tourist = gen;
+
+            return Json(obj, JsonRequestBehavior.AllowGet);
+        }
+
+        public class Ratio
+        {
+            public int Guide { get; set; }
+            public int Tourist { get; set; }
+            public int Admin { get; set; }
+        }
     }
 }
