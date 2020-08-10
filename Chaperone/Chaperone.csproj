@@ -160,6 +160,7 @@
     <Compile Include="Controllers\GenUserController.cs" />
     <Compile Include="Controllers\GuideController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -180,6 +181,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ChaperoneModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>ChaperoneModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Request.cs">
       <DependentUpon>ChaperoneModel.tt</DependentUpon>
     </Compile>
@@ -188,6 +192,9 @@
     </Compile>
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\User.cs">
+      <DependentUpon>ChaperoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit.cs">
       <DependentUpon>ChaperoneModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +220,11 @@
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Admins.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\IndexGuide.cshtml" />
+    <Content Include="Views\Message\IndexAdmin.cshtml" />
+    <Content Include="Views\Message\Create.cshtml" />
+    <Content Include="Views\Message\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
