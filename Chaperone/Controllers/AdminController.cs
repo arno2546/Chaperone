@@ -137,12 +137,16 @@ namespace Chaperone.Controllers
         {
             if ((string)Session["u_type"] == "Admin" && (int)Session["LoggedIn"] == 1)
             {
-                ChaperoneEntities che = new ChaperoneEntities();
-                u.User_type = "Admin";
-                u.status = "Active";
-                che.Users.Add(u);
-                che.SaveChanges();
-                return RedirectToAction("Admins");
+                if (ModelState.IsValid)
+                {
+                    ChaperoneEntities che = new ChaperoneEntities();
+                    u.User_type = "Admin";
+                    u.status = "Active";
+                    che.Users.Add(u);
+                    che.SaveChanges();
+                    return RedirectToAction("Admins");
+                }
+                return View(u);
             }
             return View("Index", "Home");
         }
