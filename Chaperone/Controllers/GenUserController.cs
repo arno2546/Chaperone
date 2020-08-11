@@ -13,122 +13,126 @@ namespace Chaperone.Controllers
         // GET: GenUser
         [HttpGet]
         public ActionResult Index()
-        {          
+        {        
            
             if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
             {
                 return View("~/Views/User/GenUserDash.cshtml");
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
         [HttpPost]
         public ActionResult Index(SearchModel s)
         {
-            if (ModelState.IsValid)
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
             {
-                ChaperoneEntities che = new ChaperoneEntities();
-                List<User> tempUsers = che.Users.ToList();
-                Session["startDate"] = s.StartDate.ToString("dd/MM/yyyy");
-                Session["endDate"] = s.EndDate.ToString("dd/MM/yyyy");
-                Session["Location"] = s.searchString;
-                Users = new List<User>();
-                foreach (User u in tempUsers)
+                if (ModelState.IsValid)
                 {
-                    if (u.User_type == "Guide")
-                    {
-                        if (u.Location.ToString().Contains(s.searchString.ToString()))
-                        {
-                            Users.Add(u);
-                        }
-                    }
-                }
-                tempUsers = Users.ToList();
-                if (s.Female)
-                {
+                    ChaperoneEntities che = new ChaperoneEntities();
+                    List<User> tempUsers = che.Users.ToList();
+                    Session["startDate"] = s.StartDate.ToString("dd/MM/yyyy");
+                    Session["endDate"] = s.EndDate.ToString("dd/MM/yyyy");
+                    Session["Location"] = s.searchString;
                     Users = new List<User>();
-                    foreach (User u in tempUsers.ToList())
+                    foreach (User u in tempUsers)
                     {
-                        if (u.Gender == "Female")
+                        if (u.User_type == "Guide")
                         {
-                            Users.Add(u);
+                            if (u.Location.ToString().Contains(s.searchString.ToString()))
+                            {
+                                Users.Add(u);
+                            }
                         }
                     }
-                }
-                tempUsers = Users.ToList();
-                if (s.Male)
-                {
-                    Users = new List<User>();
-                    foreach (User u in tempUsers.ToList())
+                    tempUsers = Users.ToList();
+                    if (s.Female)
                     {
-                        if (u.Gender == "Male")
+                        Users = new List<User>();
+                        foreach (User u in tempUsers.ToList())
                         {
-                            Users.Add(u);
+                            if (u.Gender == "Female")
+                            {
+                                Users.Add(u);
+                            }
                         }
                     }
-                }
-                tempUsers = Users.ToList();
-                if (s.culture)
-                {
-                    Users = new List<User>();
-                    foreach (User u in tempUsers.ToList())
+                    tempUsers = Users.ToList();
+                    if (s.Male)
                     {
-                        if (Convert.ToBoolean(u.Culture))
+                        Users = new List<User>();
+                        foreach (User u in tempUsers.ToList())
                         {
-                            Users.Add(u);
+                            if (u.Gender == "Male")
+                            {
+                                Users.Add(u);
+                            }
                         }
                     }
-                }
-                tempUsers = Users.ToList();
-                if (s.nightlife)
-                {
-                    Users = new List<User>();
-                    foreach (User u in tempUsers.ToList())
+                    tempUsers = Users.ToList();
+                    if (s.culture)
                     {
-                        if (Convert.ToBoolean(u.NightLife))
+                        Users = new List<User>();
+                        foreach (User u in tempUsers.ToList())
                         {
-                            Users.Add(u);
+                            if (Convert.ToBoolean(u.Culture))
+                            {
+                                Users.Add(u);
+                            }
                         }
                     }
-                }
-                tempUsers = Users.ToList();
-                if (s.sports)
-                {
-                    Users = new List<User>();
-                    foreach (User u in tempUsers.ToList())
+                    tempUsers = Users.ToList();
+                    if (s.nightlife)
                     {
-                        if (Convert.ToBoolean(u.Sports))
+                        Users = new List<User>();
+                        foreach (User u in tempUsers.ToList())
                         {
-                            Users.Add(u);
+                            if (Convert.ToBoolean(u.NightLife))
+                            {
+                                Users.Add(u);
+                            }
                         }
                     }
-                }
-                tempUsers = Users.ToList();
-                if (s.festival)
-                {
-                    Users = new List<User>();
-                    foreach (User u in tempUsers.ToList())
+                    tempUsers = Users.ToList();
+                    if (s.sports)
                     {
-                        if (Convert.ToBoolean(u.Festival))
+                        Users = new List<User>();
+                        foreach (User u in tempUsers.ToList())
                         {
-                            Users.Add(u);
+                            if (Convert.ToBoolean(u.Sports))
+                            {
+                                Users.Add(u);
+                            }
                         }
                     }
-                }
-                tempUsers = Users.ToList();
-                if (s.food)
-                {
-                    Users = new List<User>();
-                    foreach (User u in tempUsers.ToList())
+                    tempUsers = Users.ToList();
+                    if (s.festival)
                     {
-                        if (Convert.ToBoolean(u.Food))
+                        Users = new List<User>();
+                        foreach (User u in tempUsers.ToList())
                         {
-                            Users.Add(u);
+                            if (Convert.ToBoolean(u.Festival))
+                            {
+                                Users.Add(u);
+                            }
                         }
                     }
+                    tempUsers = Users.ToList();
+                    if (s.food)
+                    {
+                        Users = new List<User>();
+                        foreach (User u in tempUsers.ToList())
+                        {
+                            if (Convert.ToBoolean(u.Food))
+                            {
+                                Users.Add(u);
+                            }
+                        }
+                    }
+                    return View(Users);
                 }
-                return View(Users);
+                return View("~/Views/User/GenUserDash.cshtml", s);
             }
-            return View("~/Views/User/GenUserDash.cshtml", s);
+            return RedirectToAction("LogIn", "User");
         }
         [HttpGet]
         public ActionResult Edit()
@@ -141,7 +145,7 @@ namespace Chaperone.Controllers
                 User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
                 return View(u);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpPost]
@@ -161,7 +165,7 @@ namespace Chaperone.Controllers
                 che.SaveChanges();
                 return RedirectToAction("Index", "GenUser");
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpGet]
@@ -173,7 +177,7 @@ namespace Chaperone.Controllers
                 User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
                 return View(u);
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("LogIn", "User");
         }
         [HttpPost]
         [ActionName("GuideProfile")]
@@ -202,7 +206,7 @@ namespace Chaperone.Controllers
                 che.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("LogIn", "User");
 
         }
         [HttpGet]
