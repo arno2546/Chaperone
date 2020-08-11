@@ -14,6 +14,9 @@
 <div>
     <div id="container2" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
 </div>
+<div>
+    <div id="container3" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+</div>
 <script>
 
 
@@ -111,6 +114,64 @@
                     }, {
                         name: 'Female',
                         y: data.Female
+                    }]
+                }]
+            });
+        });
+    });
+
+
+</script>
+
+<script>
+
+
+    $(document).ready(function () {
+        $.getJSON("/Admin/GetVisitData", function (data) {
+
+
+
+            Highcharts.chart('container3', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Visit Ratio'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Location',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'Dhaka',
+                        y: data.Dhaka
+                    }, {
+                        name: 'Tokyo',
+                        y: data.Tokyo
+                    }, {
+                        name: 'London',
+                        y: data.London
+                    }, {
+                        name: 'New York',
+                        y: data.newYork
                     }]
                 }]
             });

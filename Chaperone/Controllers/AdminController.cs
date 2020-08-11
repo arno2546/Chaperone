@@ -188,5 +188,27 @@ namespace Chaperone.Controllers
             public int Male { get; set; }
             public int Female { get; set; }
         }
+        public ActionResult GetVisitData()
+        {
+            ChaperoneEntities che = new ChaperoneEntities();
+            int Dhaka = che.Visits.Where(x => x.Location == "Dhaka").Count();
+            int Tokyo = che.Visits.Where(x => x.Location == "Tokyo").Count();
+            int London = che.Visits.Where(x => x.Location == "London").Count();
+            int newYork = che.Visits.Where(x => x.Location == "New York").Count();
+            VisitRatio obj = new VisitRatio();
+            obj.Dhaka = Dhaka;
+            obj.Tokyo = Tokyo;
+            obj.newYork = newYork;
+            obj.London = London;
+            return Json(obj, JsonRequestBehavior.AllowGet);
+        }
+
+        public class VisitRatio
+        {
+            public int Dhaka { get; set; }
+            public int Tokyo { get; set; }
+            public int London { get; set; }
+            public int newYork { get; set; }
+        }
     }
 }
