@@ -78,7 +78,13 @@
                     @Html.LabelFor(model => model.Languages, htmlAttributes: new { @class = "control-label col-md-2" })
                 </td>
                 <td>
-                    @Html.EditorFor(model => model.Languages, new { htmlAttributes = new { @class = "form-control" } })
+                    <fieldset>
+                        <select id="Languages" name="Languages">
+                            <option selected="selected" value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="English, Spanish">English & Spanish</option>                                                                    
+                        </select>
+                    </fieldset>
                 </td>
                 <td>
                     @Html.ValidationMessageFor(model => model.Languages, "", new { @class = "text-danger" })
