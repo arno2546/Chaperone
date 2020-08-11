@@ -43,7 +43,7 @@ namespace Chaperone.Controllers
                 }
                 return View();
             }
-            return View("Index","Home");
+            return RedirectToAction("LogIn", "User");
         }
         
         [HttpGet]
@@ -58,7 +58,7 @@ namespace Chaperone.Controllers
                     return View(tourists);
                 }
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
         [HttpGet]
         public ActionResult deleteGenUser(int id)
@@ -71,7 +71,7 @@ namespace Chaperone.Controllers
                 che.SaveChanges();
                 return RedirectToAction("Tourists");
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpGet]
@@ -86,7 +86,7 @@ namespace Chaperone.Controllers
                     return View(Guides);
                 }
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpGet]
@@ -100,7 +100,7 @@ namespace Chaperone.Controllers
                 che.SaveChanges();
                 return RedirectToAction("Guides");
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpGet]
@@ -114,7 +114,7 @@ namespace Chaperone.Controllers
                 return View(u);
                 
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User"); 
         }
         [HttpPost]
         public ActionResult Edit(User u)
@@ -132,7 +132,7 @@ namespace Chaperone.Controllers
                 che.SaveChanges();
                 return RedirectToAction("Edit");            
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
         [HttpGet]
         public ActionResult Admins()
@@ -146,7 +146,7 @@ namespace Chaperone.Controllers
                     return View(Admins);
                 }
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
         
         [HttpGet]
@@ -156,7 +156,7 @@ namespace Chaperone.Controllers
             {
                 return View();                
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpPost]
@@ -175,7 +175,7 @@ namespace Chaperone.Controllers
                 }
                 return View(u);
             }
-            return View("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         public ActionResult GetData()

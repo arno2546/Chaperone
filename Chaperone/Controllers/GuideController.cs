@@ -20,7 +20,7 @@ namespace Chaperone.Controllers
                 List<Request> requests = che.Requests.Where(x => x.GuideId == i).ToList();
                 return View(requests);
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("LogIn","User");
         }
         [HttpGet]
         public ActionResult Edit()
@@ -35,7 +35,7 @@ namespace Chaperone.Controllers
                 User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
                 return View(u);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpPost]
@@ -64,7 +64,7 @@ namespace Chaperone.Controllers
                 che.SaveChanges();
                 return RedirectToAction("Index","Guide");
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
         [HttpGet]
         public ActionResult AcceptRequest(int id)
@@ -81,7 +81,7 @@ namespace Chaperone.Controllers
                 }
                 return RedirectToAction("Index");                
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpGet]
@@ -99,7 +99,7 @@ namespace Chaperone.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
     }
 }
