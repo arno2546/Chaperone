@@ -55,8 +55,8 @@
         @Html.DisplayFor(modelItem => item.User1.Name)
     </td>
     <td>
-        
-        @if (item.RequestState == "Pending" || item.RequestState=="Accepted")
+
+        @if (item.RequestState == "Pending" || item.RequestState == "Accepted")
         {
             @Html.ActionLink("Close", "closeRequest", new { id = item.Id })
         }
@@ -64,6 +64,10 @@
         @if (item.RequestState == "Accepted")
         {
             @Html.ActionLink("Fullfilled", "requestDone", new { id = item.Id })
+        }
+        @if (item.RequestState == "Done")
+        {
+            @Html.ActionLink("Rate", "CreateReview", new { id = item.Id })
         }
 
     </td>

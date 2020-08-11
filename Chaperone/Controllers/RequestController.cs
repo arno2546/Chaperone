@@ -74,5 +74,43 @@ namespace Chaperone.Controllers
             return RedirectToAction("Index", "Home");
 
         }
+        [HttpGet]
+        public ActionResult CreateReview(int id)
+        {
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
+            {
+                return View();
+            }
+            return RedirectToAction("LogIn", "User");
+        }
+
+        [HttpPost]
+        public ActionResult CreateReview(int id,Review r)
+        {
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
+            {
+                if (ModelState.IsValid)
+                {
+                    ChaperoneEntities che = new ChaperoneEntities();                   
+                    Request req = che.Requests.Where(x => x.Id == id).FirstOrDefault();
+                    int reviewedId = req.GuideId;
+                    int reviewerId = (int)Session["uid"];
+                    r.ReviewedId = reviewedId;
+                    r.ReviewerId = reviewerId;
+                    Review verf = che.Reviews.Where(x => x.ReviewedId == reviewedId && x.ReviewerId == reviewerId).FirstOrDefault();
+                    if (verf !=null) 
+                    {
+                        TempData["ReviewMessage"] = "Already Reviewed Onced";
+                        return RedirectToAction("Index", "Review");
+                    }
+                    che.Reviews.Add(r);
+                    che.SaveChanges();
+                    TempData["ReviewMessage"] = "Thank You for your Review";
+                    return RedirectToAction("Index","Review");
+                }
+                return View(r);
+            }
+            return RedirectToAction("LogIn", "User");
+        }
     }
 }
