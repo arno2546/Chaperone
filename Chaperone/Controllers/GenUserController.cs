@@ -205,7 +205,22 @@ namespace Chaperone.Controllers
             return RedirectToAction("Index","Home");
 
         }
-        
+        [HttpGet]
+        public ActionResult GuideReview(int id)
+        {
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Gen")
+            {
+                ChaperoneEntities che = new ChaperoneEntities();
+                List<Review> reviews = che.Reviews.Where(x => x.ReviewedId == id).ToList();
+                if (reviews == null || !reviews.Any())
+                {
+                    TempData["profileReviewMessage"] = "Sorry...No reviews Yet :(";
+                }
+                return View(reviews);
+            }
+            return RedirectToAction("LogIn", "User");
+        }
+
     }
     
     
