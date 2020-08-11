@@ -96,6 +96,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.scrollex.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\skel.min.js" />
+    <Content Include="assets\js\util.js" />
     <Content Include="Content\bootstrap-j.min.css" />
     <Content Include="Content\Bootstrap-journal.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -116,9 +124,24 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ChaperoneModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\pic01.jpg" />
+    <Content Include="images\pic02.jpg" />
+    <Content Include="images\pic03.jpg" />
+    <Content Include="images\pic04.jpg" />
+    <Content Include="images\slide01.jpg" />
+    <Content Include="images\slide02.jpg" />
+    <Content Include="images\slide03.jpg" />
+    <Content Include="images\slide04.jpg" />
+    <Content Include="images\slide05.jpg" />
     <Content Include="Models\ChaperoneModel.edmx.diagram">
       <DependentUpon>ChaperoneModel.edmx</DependentUpon>
     </Content>
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\ChaperoneModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
