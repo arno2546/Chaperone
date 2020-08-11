@@ -228,6 +228,7 @@
     <Content Include="Views\Message\Edit.cshtml" />
     <Content Include="Views\Request\CreateReview.cshtml" />
     <Content Include="Views\Review\Index.cshtml" />
+    <Content Include="Views\Review\AdminIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

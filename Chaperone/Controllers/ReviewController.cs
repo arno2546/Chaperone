@@ -23,6 +23,16 @@ namespace Chaperone.Controllers
                 }
                 return View(reviews);
             }
+            if ((int)Session["LoggedIn"] == 1 && (string)Session["u_type"] == "Admin")
+            {
+                ChaperoneEntities che = new ChaperoneEntities();
+                List<Review> reviews = che.Reviews.ToList();
+                if (reviews == null || !reviews.Any())
+                {
+                    TempData["ReviewMessage"] = "No available Reviews to show :(";
+                }
+                return View("~/Views/Review/AdminIndex.cshtml",reviews);
+            }
             return RedirectToAction("LogIn", "User");
         }
         
