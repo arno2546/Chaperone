@@ -65,6 +65,11 @@
         {
             @Html.ActionLink("Fullfilled", "requestDone", new { id = item.Id })
         }
+        |
+        @if (item.RequestState == "Accepted")
+        {
+            @Html.ActionLink("Pay", "Index", "Payment")
+        }
         @if (item.RequestState == "Done")
         {
             @Html.ActionLink("Rate", "CreateReview", new { id = item.Id })

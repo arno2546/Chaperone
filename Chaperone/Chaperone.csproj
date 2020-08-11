@@ -161,6 +161,7 @@
     <Compile Include="Controllers\GuideController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -185,6 +186,7 @@
     <Compile Include="Models\Message.cs">
       <DependentUpon>ChaperoneModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PayModel.cs" />
     <Compile Include="Models\Request.cs">
       <DependentUpon>ChaperoneModel.tt</DependentUpon>
     </Compile>
@@ -230,6 +232,8 @@
     <Content Include="Views\Review\Index.cshtml" />
     <Content Include="Views\Review\AdminIndex.cshtml" />
     <Content Include="Views\GenUser\GuideReview.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Home\Landing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

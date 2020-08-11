@@ -11,6 +11,10 @@ namespace Chaperone.Controllers
     {
         public List<User> Users;
         // GET: Home
+        public ActionResult Landing()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult Index()
         {
