@@ -31,14 +31,16 @@ namespace Chaperone.Models
         public string Name { get; set; }
         [Required]
         public string Email { get; set; }
-        [Required]
+        
         public string Gender { get; set; }
-        public string Location { get; set; }
         [Required]
+        public string Location { get; set; }
+        
         public string Languages { get; set; }
         public string User_type { get; set; }
-        public string Contact { get; set; }
         [Required]
+        public string Contact { get; set; }
+        
         public string Bio { get; set; }
         public Nullable<bool> Culture { get; set; }
         public Nullable<bool> Festival { get; set; }
