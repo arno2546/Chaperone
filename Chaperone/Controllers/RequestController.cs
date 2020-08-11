@@ -66,6 +66,10 @@ namespace Chaperone.Controllers
                 if (r != null)
                 {
                     r.RequestState = "Done";
+                    Visit v = new Visit();
+                    v.TouristId = userId;
+                    v.Location = r.Location;
+                    che.Visits.Add(v);
                     che.SaveChanges();
                 }
                 return RedirectToAction("GenUserRequestIndex");
