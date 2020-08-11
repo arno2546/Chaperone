@@ -14,6 +14,33 @@ namespace Chaperone.Controllers
         {
             if((string)Session["u_type"] == "Admin" && (int)Session["LoggedIn"] == 1)
             {
+                IDictionary<int, int> topGuides = new Dictionary<int, int>();
+                ChaperoneEntities che = new ChaperoneEntities();
+                List<User> users = che.Users.Where(x => x.User_type == "Guide").ToList();
+                int maxScore = 0;
+                int topGuideId = 0;
+                foreach (User u in users)
+                {
+                    List<Review> reviews = che.Reviews.Where(x => x.ReviewedId == u.Id).ToList();
+                    int totalRating = 0;                    
+                    foreach(Review r in reviews)
+                    {
+                        totalRating += (int)r.Rating; 
+                    }
+                    topGuides.Add(u.Id, totalRating);
+                    
+                    if (maxScore < totalRating)
+                    {
+                        maxScore = totalRating;
+                        topGuideId = u.Id;
+                    }
+                }
+                if (topGuideId != 0)
+                {
+                    User topGuide = che.Users.Where(x => x.Id == topGuideId).FirstOrDefault();
+                    string name = topGuide.Name;
+                    TempData["TopGuide"] = name + " is the top guide with total score of " + maxScore;
+                }
                 return View();
             }
             return View("Index","Home");
