@@ -12,37 +12,40 @@ namespace Chaperone.Controllers
         // GET: Guide
         public ActionResult Index()
         {
-            int i = (int)Session["LoggedIn"];
-            string u_type = (string)Session["u_type"];
-            if (u_type =="Guide" && i==1)
+            if ((string)Session["u_type"] == "Guide" && (int)Session["LoggedIn"] == 1)
             {
-                return View();
+                int i = (int)Session["uid"];
+                ChaperoneEntities che = new ChaperoneEntities();
+                User guide = che.Users.Where(x => x.Id == i && x.User_type == "Guide").FirstOrDefault();
+                List<Request> requests = che.Requests.Where(x => x.GuideId == i).ToList();
+                return View(requests);
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("LogIn","User");
         }
         [HttpGet]
         public ActionResult Edit()
         {
-            int i = (int)Session["LoggedIn"];
-            int id = (int)Session["uid"];
-            string u_type = (string)Session["u_type"];
-            if (u_type == "Guide" && i == 1)
+            
+            if ((string)Session["u_type"] == "Guide" && (int)Session["LoggedIn"] == 1)
             {
+                int i = (int)Session["LoggedIn"];
+                int id = (int)Session["uid"];
+                string u_type = (string)Session["u_type"];
                 ChaperoneEntities che = new ChaperoneEntities();
                 User u = che.Users.Where(x => x.Id == id).FirstOrDefault();
                 return View(u);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "User");
         }
 
         [HttpPost]
         public ActionResult Edit(User u)
         {
-            int i = (int)Session["LoggedIn"];
-            int id = (int)Session["uid"];
-            string u_type = (string)Session["u_type"];
-            if (u_type == "Guide" && i == 1)
+            if ((string)Session["u_type"] == "Guide" && (int)Session["LoggedIn"] == 1)
             {
+                int i = (int)Session["LoggedIn"];
+                int id = (int)Session["uid"];
+                string u_type = (string)Session["u_type"];
                 ChaperoneEntities che = new ChaperoneEntities();
                 User userToUpdate = che.Users.Where(x => x.Id == id).FirstOrDefault();
                 userToUpdate.Name = u.Name;
@@ -61,7 +64,42 @@ namespace Chaperone.Controllers
                 che.SaveChanges();
                 return RedirectToAction("Index","Guide");
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LogIn", "User");
+        }
+        [HttpGet]
+        public ActionResult AcceptRequest(int id)
+        {
+            if ((string)Session["u_type"] == "Guide" && (int)Session["LoggedIn"] == 1)
+            {
+                int guideId = (int)Session["uid"];
+                ChaperoneEntities che = new ChaperoneEntities();
+                Request r = che.Requests.Where(x => x.Id == id && x.GuideId == guideId && x.RequestState=="Pending").FirstOrDefault();
+                if (r != null)
+                {
+                    r.RequestState = "Accepted";
+                    che.SaveChanges();
+                }
+                return RedirectToAction("Index");                
+            }
+            return RedirectToAction("LogIn", "User");
+        }
+
+        [HttpGet]
+        public ActionResult RejectRequest(int id)
+        {
+            if ((string)Session["u_type"] == "Guide" && (int)Session["LoggedIn"] == 1)
+            {
+                int guideId = (int)Session["uid"];
+                ChaperoneEntities che = new ChaperoneEntities();
+                Request r = che.Requests.Where(x => x.Id == id && x.GuideId == guideId && x.RequestState=="Pending").FirstOrDefault();
+                if (r != null)
+                {
+                    r.RequestState = "Rejected";
+                    che.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("LogIn", "User");
         }
     }
 }

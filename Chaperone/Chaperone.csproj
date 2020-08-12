@@ -96,6 +96,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.scrollex.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\skel.min.js" />
+    <Content Include="assets\js\util.js" />
     <Content Include="Content\bootstrap-j.min.css" />
     <Content Include="Content\Bootstrap-journal.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -116,9 +124,24 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ChaperoneModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\pic01.jpg" />
+    <Content Include="images\pic02.jpg" />
+    <Content Include="images\pic03.jpg" />
+    <Content Include="images\pic04.jpg" />
+    <Content Include="images\slide01.jpg" />
+    <Content Include="images\slide02.jpg" />
+    <Content Include="images\slide03.jpg" />
+    <Content Include="images\slide04.jpg" />
+    <Content Include="images\slide05.jpg" />
     <Content Include="Models\ChaperoneModel.edmx.diagram">
       <DependentUpon>ChaperoneModel.edmx</DependentUpon>
     </Content>
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Models\ChaperoneModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -132,6 +155,8 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chart\exporting.js" />
+    <Content Include="Scripts\chart\highcharts.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -150,14 +175,18 @@
     <Content Include="Views\User\GenUserDash.cshtml" />
     <Content Include="Views\GenUser\Edit.cshtml" />
     <Content Include="Views\Shared\_GuideDashLayout.cshtml" />
-    <Content Include="Views\Guide\Index.cshtml" />
     <Content Include="Views\Guide\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GenUserController.cs" />
     <Compile Include="Controllers\GuideController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\RequestController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -177,6 +206,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ChaperoneModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Message.cs">
+      <DependentUpon>ChaperoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PayModel.cs" />
     <Compile Include="Models\Request.cs">
       <DependentUpon>ChaperoneModel.tt</DependentUpon>
     </Compile>
@@ -185,6 +218,9 @@
     </Compile>
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\User.cs">
+      <DependentUpon>ChaperoneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Visit.cs">
       <DependentUpon>ChaperoneModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,7 +232,31 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\GenUser\Index.cshtml" />
+    <Content Include="Views\GenUser\GuideProfile.cshtml" />
+    <Content Include="Views\Request\GenUserRequestIndex.cshtml" />
+    <Content Include="Views\Guide\Index.cshtml" />
+    <Content Include="Views\Shared\_AdminDashLayout.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Tourists.cshtml" />
+    <Content Include="Views\Admin\Guides.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Admins.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\IndexGuide.cshtml" />
+    <Content Include="Views\Message\IndexAdmin.cshtml" />
+    <Content Include="Views\Message\Create.cshtml" />
+    <Content Include="Views\Message\Edit.cshtml" />
+    <Content Include="Views\Request\CreateReview.cshtml" />
+    <Content Include="Views\Review\Index.cshtml" />
+    <Content Include="Views\Review\AdminIndex.cshtml" />
+    <Content Include="Views\GenUser\GuideReview.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Home\Landing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

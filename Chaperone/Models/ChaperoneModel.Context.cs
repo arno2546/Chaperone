@@ -25,8 +25,10 @@ namespace Chaperone.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Visit> Visits { get; set; }
     }
 }

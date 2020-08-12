@@ -26,10 +26,12 @@ namespace Chaperone.Controllers
             if (ModelState.IsValid)
             {
                 u.User_type = "Gen";
+                u.status = "Active";
                 ChaperoneEntities che = new ChaperoneEntities();
                 che.Users.Add(u);
                 che.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                TempData["LogInMessage"] = "Account Successfully Created. Please Log in";
+                return RedirectToAction("LogIn");
             }
             return View(u);
         }
@@ -45,9 +47,11 @@ namespace Chaperone.Controllers
             {
                 ChaperoneEntities che = new ChaperoneEntities();
                 u.User_type = "Guide";
+                u.status = "Active";
                 che.Users.Add(u);
                 che.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                TempData["LogInMessage"] = "Account Successfully Created. Please Log in";
+                return RedirectToAction("LogIn");
             }
             return View(u);
         }
@@ -65,22 +69,35 @@ namespace Chaperone.Controllers
             User verfUser = che.Users.Where(x => x.Email.Equals(u.Email)).FirstOrDefault();
             if(verfUser!= null)
             {
-                if (u.Password == verfUser.Password)
+                if (u.Password == verfUser.Password && verfUser.status == "Active")
                 {
-                    //initialize SESSION components.......l
+                    //initialize SESSION components.......
                     Session["LoggedIn"] = 1;
                     Session["uname"] = verfUser.Name;
                     Session["uid"] = verfUser.Id;
                     Session["u_type"] = verfUser.User_type;
-                    if (verfUser.User_type == "Gen") {
+                    if (verfUser.User_type == "Gen")
+                    {
                         return RedirectToAction("Index", "GenUser");
                     }
                     if (verfUser.User_type == "Guide")
                     {
                         return RedirectToAction("Index", "Guide");
                     }
-                    
+                    if (verfUser.User_type == "Admin")
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
                 }
+                if (verfUser.status == "Banned")
+                {
+                    TempData["LogInMessage"] = "You are Banned. Please Contact Admin for further Queries";
+                }
+                else
+                {
+                    TempData["LogInMessage"] = "Invalide Username or Password";
+                }
+
             }
             return RedirectToAction("LogIn");
         }

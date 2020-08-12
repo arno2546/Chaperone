@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Chaperone.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Search Results:</h3>
+
+ 
+<h3>Search Results:</h3>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Culture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Festival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sports)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Food)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NightLife)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Location)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Culture)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Festival)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Sports)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Food)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NightLife)
+    </td>
+    <td>
+        @Html.ActionLink("View Profile", "GuideProfile", new { id = item.Id })
+    </td>
+    <td>
+        @Html.ActionLink("Reviews", "GuideReview", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>

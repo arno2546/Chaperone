@@ -21,6 +21,9 @@ namespace Chaperone
             Session["uname"] = null;
             Session["uid"] = null;
             Session["u_type"] = null;
+            Session["startDate"] = null;
+            Session["endDate"] = null;
+            Session["Location"] = null;
         }
     }
 }

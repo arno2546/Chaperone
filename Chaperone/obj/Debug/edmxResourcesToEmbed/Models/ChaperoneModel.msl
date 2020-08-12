@@ -1,11 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ChaperoneModelStoreContainer" CdmEntityContainer="ChaperoneEntities">
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="ChaperoneModel.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Form" ColumnName="Form" />
+          <ScalarProperty Name="Message1" ColumnName="Message" />
+          <ScalarProperty Name="To" ColumnName="To" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Requests">
       <EntityTypeMapping TypeName="ChaperoneModel.Request">
         <MappingFragment StoreEntitySet="Requests">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TouristId" ColumnName="TouristId" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
           <ScalarProperty Name="Location" ColumnName="Location" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
@@ -43,6 +54,17 @@
           <ScalarProperty Name="Sports" ColumnName="Sports" />
           <ScalarProperty Name="Food" ColumnName="Food" />
           <ScalarProperty Name="NightLife" ColumnName="NightLife" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visits">
+      <EntityTypeMapping TypeName="ChaperoneModel.Visit">
+        <MappingFragment StoreEntitySet="Visits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TouristId" ColumnName="TouristId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

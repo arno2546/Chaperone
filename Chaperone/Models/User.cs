@@ -35,16 +35,20 @@ namespace Chaperone.Models
         public string Gender { get; set; }
         [Required]
         public string Location { get; set; }
+        
         public string Languages { get; set; }
         public string User_type { get; set; }
         [Required]
         public string Contact { get; set; }
+        
         public string Bio { get; set; }
         public Nullable<bool> Culture { get; set; }
         public Nullable<bool> Festival { get; set; }
         public Nullable<bool> Sports { get; set; }
         public Nullable<bool> Food { get; set; }
         public Nullable<bool> NightLife { get; set; }
+        public Nullable<double> Rate { get; set; }
+        public string status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Request> Requests { get; set; }

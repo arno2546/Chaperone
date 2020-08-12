@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Chaperone.Models.Review>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Index</h3>
+
+<p>
+   
+</p>
+<h2 style="text-align:center">Reviews</h2>
+<h3 style="text-align:center; color:red;font-family:Consolas">@TempData["ReviewMessage"]</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+           Review
+        </th>
+        <th>
+            Guide
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Review1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+        
+        <td>
+           
+        </td>
+    </tr>
+}
+
+</table>

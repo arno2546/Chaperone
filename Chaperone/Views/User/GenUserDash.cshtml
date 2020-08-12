@@ -1,8 +1,202 @@
-﻿
+﻿@model Chaperone.Models.SearchModel
+
 @{
-    ViewBag.Title = "GenUserDash";
+    ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>GenUserDash</h2>
+<h3>Index</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="container text-lg-center">
+
+    <h2 style="text-align:center">Search</h2>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="col-lg-4 col-lg-offset-4">
+        <table>
+            <tr>
+                <td class="align-middle">
+                    <label>Search Location</label>
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.searchString, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.searchString, "", new { @class = "text-danger" })
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <div class="col-lg-4 col-lg-offset-4">
+        <table>
+            <tr>
+                <td><h2 style="text-align:center">Interests</h2></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.festival, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.festival)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.festival, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.LabelFor(model => model.sports, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.sports)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.sports, "", new { @class = "text-danger" })
+                </td>
+                <td>
+
+                    @Html.LabelFor(model => model.food, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.food)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.food, "", new { @class = "text-danger" })
+                </td>
+                <td>
+
+
+                    @Html.LabelFor(model => model.nightlife, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.nightlife)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.nightlife, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.LabelFor(model => model.culture, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.culture)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.culture, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            </table>
+    </div>
+    <div class="col-lg-4 col-lg-offset-4">
+
+        <table>
+
+            <h2>Gender Preference</h2>
+            <tr>
+
+                <td>
+                    @Html.LabelFor(model => model.Male, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Male)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Male, "", new { @class = "text-danger" })
+                </td>
+                <td>
+
+                    @Html.LabelFor(model => model.Female, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Female)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Female, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="col-lg-4 col-lg-offset-4">
+        <table>
+            <h2>Language Preference</h2>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.English, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.English)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.English, "", new { @class = "text-danger" })
+                </td>
+                <td>
+
+
+                    @Html.LabelFor(model => model.Spanish, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Spanish)
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.Spanish, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-lg-4 col-lg-offset-4">
+
+        <table>
+            <h2>Trip date</h2>
+            <tr>
+                <td>
+
+
+                    @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                </td>
+                <td>
+                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    <label>year,month,date</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <div class="col-lg-4 col-lg-offset-4">
+            <center>
+                <input type="submit" value="Search" class="btn btn-default" />
+            </center>
+        </div>
+    </div>
+</div>
+    }
+
+    <div>
+        
+    </div>
+
 

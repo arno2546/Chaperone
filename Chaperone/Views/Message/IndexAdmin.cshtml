@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Chaperone.Models.Message>
+
+@{
+    ViewBag.Title = "IndexAdmin";
+    Layout = "~/Views/Shared/_AdminDashLayout.cshtml";
+}
+
+<h3>IndexAdmin</h3>
+
+<p>
+     
+</p>
+<h2 style="text-align:center">Messages</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Form)
+        </th>
+        <th>
+            Message(s)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.To)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Form)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.To)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<h3 style="text-align:center; color:red;font-family:Consolas">@TempData["ReviewMessage"]</h3>

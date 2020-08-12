@@ -11,12 +11,14 @@ namespace Chaperone.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Review
     {
         public int Id { get; set; }
         public int ReviewerId { get; set; }
         public int ReviewedId { get; set; }
+        [Required]
         public int Rating { get; set; }
         public string Review1 { get; set; }
     
